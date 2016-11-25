@@ -1,0 +1,18 @@
+        .jpager {
+            height: 40px;
+        }
+            .jpager a {
+                display: inline-block;
+                height: 28px;
+                padding: 2px 8px;
+                text-align: center;
+                line-height: 25px;
+                border: 1px solid #DDDDDD;
+                margin: 2px;
+                color: #666;
+            }
+            .jpager a:hover {
+                    color: white;
+                    background: #0063e3;
+                    text-decoration: none;
+            }

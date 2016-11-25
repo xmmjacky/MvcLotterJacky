@@ -1,0 +1,46 @@
+﻿
+.f-dn {
+    display: none;
+}
+.f-fl {
+    float:left;
+}
+.f-fr {
+    float:right;
+}
+.f-mr20 {
+    margin-right:20px!important;
+}
+.f-mb20 {
+    margin-bottom:10px!important;
+}
+.clearfix:before, .clearfix:after{content:"\0020";display:block;height:0;overflow:hidden;}
+.clearfix:after{clear:both;}
+.clearfix{zoom:1;}
+
+.search-bar {
+    padding:10px 15px 0;
+}
+    .search-bar .row {
+        margin:0;
+    }
+.search-bar .lb{
+    
+    line-height:34px;
+}
+
+.search-bar .ipt{
+    width:150px;
+    padding:8px 4px;
+}
+    .search-bar .select {
+        width:150px;
+        height:34px;
+    }
+
+.search-bar .line{
+    line-height:34px;
+    font-size:14px;
+    padding:0 5px;
+}
+
