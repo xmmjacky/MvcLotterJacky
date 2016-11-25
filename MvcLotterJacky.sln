@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcLotterJacky", "MvcLotter
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MvcLotterModel", "MvcLotterModel", "{A3A4BD61-D023-49BF-AC2A-F63C7187EDDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcLotterModel", "MvcLotterModel\MvcLotterModel.csproj", "{F6C1F71B-F790-4090-9571-F7A0D05380F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,8 +19,15 @@ Global
 		{28874E6C-CD40-451E-8133-10A90CABDD13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28874E6C-CD40-451E-8133-10A90CABDD13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28874E6C-CD40-451E-8133-10A90CABDD13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6C1F71B-F790-4090-9571-F7A0D05380F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6C1F71B-F790-4090-9571-F7A0D05380F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6C1F71B-F790-4090-9571-F7A0D05380F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6C1F71B-F790-4090-9571-F7A0D05380F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F6C1F71B-F790-4090-9571-F7A0D05380F7} = {A3A4BD61-D023-49BF-AC2A-F63C7187EDDA}
 	EndGlobalSection
 EndGlobal
