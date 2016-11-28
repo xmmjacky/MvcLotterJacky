@@ -9,6 +9,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MvcLotterModel", "MvcLotter
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcLotterModel", "MvcLotterModel\MvcLotterModel.csproj", "{F6C1F71B-F790-4090-9571-F7A0D05380F7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MvcLotterServices", "MvcLotterServices", "{8F74A8F5-E6D3-4F99-81BB-623AE31DE968}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcLotterServicesLogic", "MvcLotterServicesLogic\MvcLotterServicesLogic.csproj", "{61C2CE75-5168-4D8B-A607-9A59C8D7ECCC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MvcLotterDal", "MvcLotterDal", "{07342722-B6F0-465E-B3B3-68BDF17C46FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcLotterDal", "MvcLotterDal\MvcLotterDal.csproj", "{D6626603-758D-428C-B94E-D4BAF537C1A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,11 +31,21 @@ Global
 		{F6C1F71B-F790-4090-9571-F7A0D05380F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6C1F71B-F790-4090-9571-F7A0D05380F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6C1F71B-F790-4090-9571-F7A0D05380F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61C2CE75-5168-4D8B-A607-9A59C8D7ECCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61C2CE75-5168-4D8B-A607-9A59C8D7ECCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61C2CE75-5168-4D8B-A607-9A59C8D7ECCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61C2CE75-5168-4D8B-A607-9A59C8D7ECCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6626603-758D-428C-B94E-D4BAF537C1A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6626603-758D-428C-B94E-D4BAF537C1A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6626603-758D-428C-B94E-D4BAF537C1A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6626603-758D-428C-B94E-D4BAF537C1A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F6C1F71B-F790-4090-9571-F7A0D05380F7} = {A3A4BD61-D023-49BF-AC2A-F63C7187EDDA}
+		{61C2CE75-5168-4D8B-A607-9A59C8D7ECCC} = {8F74A8F5-E6D3-4F99-81BB-623AE31DE968}
+		{D6626603-758D-428C-B94E-D4BAF537C1A2} = {07342722-B6F0-465E-B3B3-68BDF17C46FE}
 	EndGlobalSection
 EndGlobal

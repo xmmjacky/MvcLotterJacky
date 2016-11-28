@@ -1,11 +1,6 @@
-﻿using CNCar.Infrastructures.Enum;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
-namespace CNCar.Orders.ParView
+namespace MvcLotterModel.ParView
 {
     public class OrderInfoPar : PageBase
     {
@@ -27,14 +22,7 @@ namespace CNCar.Orders.ParView
         /// 客户手机号
         /// </summary>
         public System.String CustomerPhone { get; set; }
-        //加密
-        public string CustomerPhoneEncrypt
-        {
-            get
-            {
-                return !String.IsNullOrEmpty(CustomerPhone) ? Common.DesEncryptHelper.Encrypt(CustomerPhone) : string.Empty;
-            }
-        }
+       
         /// <summary>
         /// 下单日期
         /// </summary>
@@ -53,14 +41,7 @@ namespace CNCar.Orders.ParView
         /// 教练手机号
         /// </summary>
         public System.String CoachPhone { get; set; }
-        //加密
-        public string CoachPhoneEncrypt
-        {
-            get
-            {
-                return !String.IsNullOrEmpty(CoachPhone) ? Common.DesEncryptHelper.Encrypt(CoachPhone) : string.Empty;
-            }
-        }
+       
         /// <summary>
         /// 订单状态
         /// </summary>

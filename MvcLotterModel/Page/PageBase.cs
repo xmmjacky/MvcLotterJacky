@@ -1,4 +1,5 @@
-﻿namespace MvcLotterModel.Page
+﻿using System.Web;
+namespace MvcLotterModel.Page
 {
     public class PageBase
     {

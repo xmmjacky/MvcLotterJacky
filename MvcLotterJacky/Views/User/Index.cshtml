@@ -1,0 +1,162 @@
+﻿@{
+    ViewBag.Title = "用户列表";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var userPar = ViewBag.userInfoPar as MvcLotterModel.User;
+}
+<link href="~/Static/searchbar/searchbar.css" rel="stylesheet" />
+<div class="page-content">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <form id="searchForm" class="form-horizontal " role="form" action="@Url.Action("Index", "User")">
+                <div class="form-group f-bb">
+                    <div class="search-bar clearfix">
+                        <div class="row f-fl clearfix f-mr20 f-mr20">
+                            <label class="lb f-fl">员工工号：</label>
+                            <input type="text" id="UserNo" name="UserNo" placeholder="工号" class="f-fl ipt" />
+                        </div>
+                        <div class="row f-fl clearfix f-mr20 f-mr20">
+                            <label class="lb f-fl">员工手机号：</label>
+                            <input type="text" id="Phone" name="Phone" placeholder="手机号" class="f-fl ipt" />
+                        </div>
+                        <div class="row f-fl clearfix f-mr20 f-mb20">
+                            <label class="lb f-fl">员工姓名：</label>
+                            <input type="text" id="UserName" name="UserName" placeholder="姓名" class="f-fl ipt" />
+                        </div>
+                        <div class="row f-fl clearfix f-mr20 f-mb20">
+                            <label class="lb f-fl">是否签到：</label>
+                            <select class="form-control" id="UserStatus" name="UserStatus" style="width:120px;">
+                                <option value="">==请选择==</option>
+                                <option value="0">未签到</option>
+                                <option value="1">已签到</option>
+                            </select>
+                        </div>
+
+                        <div class="row f-fl clearfix f-mr10 f-mb10">
+                            &nbsp;
+                            <button class="btn btn-sm  btn-primary"><i class="icon-zoom-in bigger-110"></i>查 询 </button>
+                            <button class="btn btn-sm reset" type="reset"><i class="icon-undo bigger-110"></i>重置</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+            <p>
+                <button class="btn btn-sm btn-success" id="btn-add"><i class="icon-inbox bigger-125"></i>新增员工</button>
+            </p>
+            <div class="table-responsive">
+                <div class="dataTables_wrapper" role="grid">
+                    <table id="sample-table-1" class="table table-striped  table-bordered table-hover">
+                        <thead>
+                            <tr role="row">
+                                <th role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1">员工编号</th>
+                                <th role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1">员工姓名</th>
+                                <th role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1">员工手机号</th>
+                                <th role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1">所属部门</th>
+                                <th role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1">签到状态</th>
+                                <th role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1">创建时间</th>
+                                <th role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody role="alert" aria-live="polite" aria-relevant="all" class="table-tr-click">
+                            @foreach (MvcLotterModel.User item in Model.DataList)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.UserNo
+                                    </td>
+                                    <td>
+                                        @item.UserName
+                                    </td>
+                                    <td>
+                                        @item.phone
+                                    </td>
+                                    <td>
+                                        @item.Department
+                                    </td>
+                                    <td>
+                                        @item.Islottery
+                                    </td>
+                                    <td>
+                                        @item.CreateTime
+                                    </td>
+                                    <td>
+
+                                        @if (item.Islottery == false)
+                                        {
+
+                                            <button class="btn btn-xs btn-pink open-event redirectionOrder sign" userno="@item.ID" title="签到">
+                                                <i class="icon-exchange bigger-120"></i>
+                                            </button>
+
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+                @Html.Raw(Model.PagerHtml()) 共 @Model.Total 条
+            </div>
+
+            <div class="hr hr-18 dotted hr-double"></div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript">
+
+    $(function () {
+        //初始化tooltip
+        $(".open-event").tooltip({
+            show: {
+                effect: "slideDown",
+                delay: 250
+            }
+        });
+
+        //保持搜索条件
+        $('#UserNo').val('@userPar.UserNo');
+        $('#Phone').val('@userPar.phone');
+        $('#UserStatus').val('@userPar.Islottery');
+        $('#UserName').val('@userPar.UserName');
+
+        $("#btn-add").on('click', function () {
+            window.location.href = "/User/Add";
+        });
+        //确认
+        $(".sign").on("click", function () {
+            var id = $(this).attr("userno");
+            if (id != undefined) {
+
+                layer.confirm('您确认该用户已经入场了吗？', {
+                    btn: ['确认', '取消'] //按钮
+                }, function () {
+                    var params = { id: id, orderno: orderno, type: 'confirmOrder' };
+                    $.post("@Url.Action("UserSign", "User")", params, function (data) {
+                        if (data.status == 1) {
+                            location.reload();
+                            layer.msg(data.msg);
+                        } else {
+                            layer.msg(data.msg);
+                        }
+                    });
+                }, function () {
+                    layer.msg('您已经取消了操作');
+                });
+            } else {
+                layer.msg('当前操作无效');
+            }
+
+        });
+
+    });
+</script>
+
