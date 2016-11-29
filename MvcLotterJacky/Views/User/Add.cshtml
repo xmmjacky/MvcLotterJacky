@@ -1,0 +1,123 @@
+﻿
+@{
+    ViewBag.Title = "新增员工";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Static/assets/css/font-awesome.min.css" rel="stylesheet" />
+
+
+    <div class="page-content">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>
+                        新增员工资料
+                        <small>
+                            <i class="icon-double-angle-right"></i>
+                            作为抽奖人员的前期资料
+                        </small>
+                    </h1>
+                </div><!-- /.page-header -->
+                <form class="form-horizontal" id="userForm" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="UserNo">员工编号：</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="UserNo" id="UserNo" value="" placeholder="员工编号" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="UserName">员工姓名：</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="UserName" id="UserName" value="" placeholder="员工姓名" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="phone">手机号：</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="phone" id="phone" value="" placeholder="输入手机号" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="Department">部门：</label>
+
+                        <div class="col-sm-9">
+                            <input type="text" name="Department" id="Department" value="" placeholder="输入部门" />
+                        </div>
+                    </div>
+                    <div class="clearfix form-actions">
+                        <div class="col-md-offset-3 col-md-9" style="margin:0 auto;text-align: center">
+                            <button class="btn btn-info" type="button">
+                                <i class="icon-ok bigger-110"></i>
+                                提交
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div><!-- /.row -->
+</div>
+
+<script src="~/Static/assets/js/typeahead-bs2.min.js"></script>
+<script src="~/Static/layer/layer.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        //添加标签
+        $(".btn-info").on("click", function () {
+
+            var UserNo = $("#UserNo").val();
+            var UserName = $("#UserName").val();
+            var phone = $("#phone").val();
+            var Department = $("#Department").val();
+            if (UserNo == "") {
+                layer.msg("请输入员工编号！");
+                return false;
+            }
+            if (UserName == "") {
+                layer.msg("请输入员工姓名！");
+                return false;
+            }
+            if (phone == "") {
+                layer.msg("请输入手机号码");
+                return false;
+            }
+            if (Department == "") {
+                layer.msg("请输入部门！");
+                return false;
+            } else {
+                layer.confirm('您确认该次操作吗？', {
+                    btn: ['确认', '取消'] //按钮
+                }, function () {
+                    layer.load(2, { shade: [0.1, '#fff'] });
+                    var params = { UserNo: UserNo, UserName: UserName, phone: phone, Department: Department };
+                    $.post("@Url.Action("InsertUser", "User")", params, function (data) {
+                        if (data.status == 1) {
+                            layer.msg(data.msg, {
+                                icon: 1,
+                                time: 2000
+                            }, function () {
+                                //parent.layer.close(index);
+                                window.location.reload();
+
+                            });
+                        } else {
+                            layer.msg(data.msg,{icon:2,time:2000},function() {
+                                $("#userForm")[0].reset();
+                                layer.closeAll();
+                            });  
+                        }
+                    });
+                }, function () {
+                    layer.msg('您已经取消了操作');
+                });
+
+            }
+
+        });
+    })
+</script>
+
+

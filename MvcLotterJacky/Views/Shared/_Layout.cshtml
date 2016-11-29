@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="/Static/assets/css/ace-rtl.min.css" />
         <link rel="stylesheet" href="/Static/assets/css/ace-skins.min.css" />
 
-        <script src="/Static/assets/js/ace-extra.min.js"></script>
+       
 
     </head>
 
@@ -86,17 +86,23 @@
                     </div><!-- #sidebar-shortcuts -->
 
                     <ul class="nav nav-list">
-                        <li class="active">
+                        <li>
                             <a href="/User/Index">
                                 <i class="icon-dashboard"></i>
                                 <span class="menu-text"> 员工列表 </span>
                             </a>
                         </li>
+                        <li>
+                            <a href="/Awards/Index">
+                                <i class="icon-desktop"></i>
+                                <span class="menu-text"> 奖品列表 </span>
+                            </a>
+                        </li>
 
                         <li>
-                            <a href="typography.html">
+                            <a href="/AwardsUser/Index">
                                 <i class="icon-text-width"></i>
-                                <span class="menu-text"> 中奖列表 </span>
+                                <span class="menu-text"> 中奖人员列表 </span>
                             </a>
                         </li>
 
@@ -144,12 +150,11 @@
         <script type="text/javascript">
             if ("ontouchend" in document) document.write("<script src='/Static/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
         </script>
+        <script src="~/Static/assets/js/jquery-2.0.3.min.js"></script>
         <script src="/Static/assets/js/bootstrap.min.js"></script>
         <script src="/Static/assets/js/typeahead-bs2.min.js"></script>
-
-        <script src="/Static/assets/js/ace-elements.min.js"></script>
         <script src="/Static/assets/js/ace.min.js"></script>
-    
+        <script src="/Static/assets/js/ace-elements.min.js"></script>
     </body>
 </html>
 <script type="text/javascript">
