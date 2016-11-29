@@ -12,7 +12,7 @@ namespace MvcLotterJacky.Controllers
         private readonly AwardsListLogic _awardsListLogic = new AwardsListLogic();
         private readonly object _lockobject = new object();
         //
-        // GET: /Home/
+        // GET: /抽奖页面
         public ActionResult Index()
         {
             
